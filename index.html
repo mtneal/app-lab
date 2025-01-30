@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike's App Lab</title>
+    <style>
+        :root {
+            --bg-color: #e2e8ed;  /* Updated to a more grayish light blue */
+            --card-bg: #ffffff;    
+            --text-dark: #333333;  
+            --yellow: #ffd500;     
+            --red: #e3000b;        
+            --blue: #0055bf;       
+            --green: #00852b;      
+            --text-secondary: #666666;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Rest of the styles remain exactly the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--text-dark);
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* [Previous styles remain exactly the same...] */
+        header {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+            padding: 0.7em 1.4em;
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin: 0 auto;
+            display: block;
+            line-height: 1.2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 span {
+            display: block;
+            font-size: 0.5em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0.5em;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            border-radius: 8px 8px 0 0;
+            transition: var(--transition);
+        }
+
+        .app-card:nth-child(1)::before { background: var(--yellow); }
+        .app-card:nth-child(2)::before { background: var(--red); }
+        .app-card:nth-child(3)::before { background: var(--blue); }
+        .app-card:nth-child(4)::before { background: var(--green); }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--card-bg);
+            position: relative;
+        }
+
+        .app-card:nth-child(1) .app-icon { background: var(--yellow); color: var(--text-dark); }
+        .app-card:nth-child(2) .app-icon { background: var(--red); }
+        .app-card:nth-child(3) .app-icon { background: var(--blue); }
+        .app-card:nth-child(4) .app-icon { background: var(--green); }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .app-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .app-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 8px 8px;
+            border-radius: 0 0 12px 0;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .app-card:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            header {
+                margin-bottom: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                padding: 0.8em 1em;
+            }
+
+            .grid-container {
+                gap: 1rem;
+            }
+
+            .app-card {
+                padding: 1.5rem;
+            }
+
+            .app-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span>Welcome to Mike's</span>App Lab</h1>
+    </header>
+
+    <main class="grid-container">
+        <div class="app-card">
+            <div class="app-icon">A1</div>
+            <h2 class="app-title">App One</h2>
+            <p class="app-description">Brief description of the first application goes here.</p>
+        </div>
+
+        <div class="app-card">
+            <div class="app-icon">A2</div>
+            <h2 class="app-title">App Two</h2>
+            <p class="app-description">Brief description of the second application goes here.</p>
+        </div>
+
+        <div class="app-card">
+            <div class="app-icon">A3</div>
+            <h2 class="app-title">App Three</h2>
+            <p class="app-description">Brief description of the third application goes here.</p>
+        </div>
+
+        <div class="app-card">
+            <div class="app-icon">A4</div>
+            <h2 class="app-title">App Four</h2>
+            <p class="app-description">Brief description of the fourth application goes here.</p>
+        </div>
+    </main>
+</body>
+</html>
