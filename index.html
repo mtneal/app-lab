@@ -106,10 +106,10 @@
             transition: var(--transition);
         }
 
-        .app-card:nth-child(1)::before { background: var(--yellow); }
-        .app-card:nth-child(2)::before { background: var(--red); }
-        .app-card:nth-child(3)::before { background: var(--blue); }
-        .app-card:nth-child(4)::before { background: var(--green); }
+        .grid-container > a:nth-child(1) .app-card::before { background: var(--yellow); }
+        .grid-container > a:nth-child(2) .app-card::before { background: var(--red); }
+        .grid-container > a:nth-child(3) .app-card::before { background: var(--blue); }
+        .grid-container > a:nth-child(4) .app-card::before { background: var(--green); }
 
         .app-card:hover {
             transform: translateY(-5px);
@@ -130,10 +130,10 @@
             position: relative;
         }
 
-        .app-card:nth-child(1) .app-icon { background: var(--yellow); color: var(--text-dark); }
-        .app-card:nth-child(2) .app-icon { background: var(--red); }
-        .app-card:nth-child(3) .app-icon { background: var(--blue); }
-        .app-card:nth-child(4) .app-icon { background: var(--green); }
+        .grid-container > a:nth-child(1) .app-icon { background: var(--yellow); color: var(--text-dark); }
+        .grid-container > a:nth-child(2) .app-icon { background: var(--red); }
+        .grid-container > a:nth-child(3) .app-icon { background: var(--blue); }
+        .grid-container > a:nth-child(4) .app-icon { background: var(--green); }
 
         .app-title {
             font-size: 1.5rem;
