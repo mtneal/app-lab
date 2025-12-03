@@ -6,7 +6,7 @@
     <title>Mike's App Lab</title>
     <style>
         :root {
-            --bg-color: #e2e8ed;  /* Updated to a more grayish light blue */
+            --bg-color: #e2e8ed;
             --card-bg: #ffffff;    
             --text-dark: #333333;  
             --yellow: #ffd500;     
@@ -17,7 +17,6 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Rest of the styles remain exactly the same */
         * {
             margin: 0;
             padding: 0;
@@ -36,7 +35,6 @@
             background-size: 20px 20px;
         }
 
-        /* [Previous styles remain exactly the same...] */
         header {
             max-width: 800px;
             margin: 0 auto 3rem;
@@ -50,7 +48,6 @@
             letter-spacing: 2px;
             color: var(--text-dark);
             position: relative;
-            display: inline-block;
             padding: 0.7em 1.4em;
             background: var(--card-bg);
             border-radius: 8px;
@@ -79,9 +76,9 @@
         }
 
         .grid-container > a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .app-card {
@@ -167,6 +164,90 @@
             opacity: 1;
         }
 
+        .external-resources {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .resource-list {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--text-secondary);
+        }
+
+        .resource-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .resource-item:first-child {
+            padding-top: 0;
+        }
+
+        .resource-item:hover {
+            padding-left: 0.5rem;
+        }
+
+        .resource-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .resource-link:hover .resource-title {
+            color: var(--blue);
+        }
+
+        .resource-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-title::after {
+            content: '↗';
+            font-size: 0.9em;
+            opacity: 0.5;
+        }
+
+        .resource-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 1rem;
@@ -194,6 +275,22 @@
                 height: 48px;
                 font-size: 1.2rem;
             }
+
+            .external-resources {
+                margin-top: 3rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .resource-list {
+                padding: 1.5rem;
+            }
+
+            .resource-title {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -203,38 +300,60 @@
     </header>
 
     <main class="grid-container">
-        <a href="https://lines-and-shapes.mikesapplab.com/" target="_blank">
-        <div class="app-card">
-            <div class="app-icon">LS</div>
-            <h2 class="app-title">Lines and Shapes</h2>
-            <p class="app-description">I used several AI tools to create this react-based drawing app.</p>
-        </div>
+        <a href="https://lines-and-shapes.mikesapplab.com/" target="_blank" rel="noopener noreferrer">
+            <div class="app-card">
+                <div class="app-icon">LS</div>
+                <h2 class="app-title">Lines and Shapes</h2>
+                <p class="app-description">I used several AI tools to create this react-based drawing app.</p>
+            </div>
         </a>
 
-        <a href="https://statics-drawings.mikesapplab.com/" target="_blank">
-        <div class="app-card">
-            <div class="app-icon">SD</div>
-            <h2 class="app-title">Statics Drawings</h2>
-            <p class="app-description">Create diagrams for Statics problems in Mechanical Engineering.</p>
-        </div>
+        <a href="https://statics-drawings.mikesapplab.com/" target="_blank" rel="noopener noreferrer">
+            <div class="app-card">
+                <div class="app-icon">SD</div>
+                <h2 class="app-title">Statics Drawings</h2>
+                <p class="app-description">Create diagrams for Statics problems in Mechanical Engineering.</p>
+            </div>
         </a>
 
-        <a href="https://habit-prototype.mikesapplab.com/" target="_blank">
-        <div class="app-card">
-            <div class="app-icon">HT</div>
-            <h2 class="app-title">Habit Tracker MVP</h2>
-            <p class="app-description">Build momentum by tracking habits and visualizing progress. All data stays local in your browser - no account needed.</p>
-        </div>
+        <a href="https://habit-prototype.mikesapplab.com/" target="_blank" rel="noopener noreferrer">
+            <div class="app-card">
+                <div class="app-icon">HT</div>
+                <h2 class="app-title">Habit Tracker MVP</h2>
+                <p class="app-description">Build momentum by tracking habits and visualizing progress. All data stays local in your browser - no account needed.</p>
+            </div>
         </a>
 
         <a href="#">
-        <div class="app-card">
-            <div class="app-icon">A4</div>
-            <h2 class="app-title">App Four</h2>
-            <p class="app-description">This is just a placeholder for a future application.</p>
-        </div>
+            <div class="app-card">
+                <div class="app-icon">A4</div>
+                <h2 class="app-title">App Four</h2>
+                <p class="app-description">This is just a placeholder for a future application.</p>
+            </div>
         </a>
-        
     </main>
+
+    <section class="external-resources">
+        <div class="section-header">
+            <h2>External Resources</h2>
+            <p>for help or inspiration</p>
+        </div>
+        
+        <div class="resource-list">
+            <div class="resource-item">
+                <a href="#" class="resource-link" target="_blank" rel="noopener noreferrer">
+                    <h3 class="resource-title">Example Resource</h3>
+                    <p class="resource-description">This is a placeholder for an external resource. Replace with your actual links and descriptions.</p>
+                </a>
+            </div>
+            
+            <div class="resource-item">
+                <a href="#" class="resource-link" target="_blank" rel="noopener noreferrer">
+                    <h3 class="resource-title">Another Resource</h3>
+                    <p class="resource-description">Add more resource items as needed by copying the resource-item div structure.</p>
+                </a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
