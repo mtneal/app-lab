@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike's App Lab | Web Apps Built with AI</title>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Michael Neal",
+      "url": "https://mikesapplab.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/michael-neal-3914a6134"
+      ],
+      "jobTitle": [
+        "Mechanical Engineer",
+        "Web App Developer"
+      ],
+      "description": "Personal projects built with AI",
+      "knowsAbout": ["Vibe Coding", "AI", "Web App Development", "Mechanical Engineering", "Higher Education", "Additive Manufacturing"]
+    }
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X9MDV7LW9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7X9MDV7LW9');
+    </script>
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Mike's App Lab">
+    <meta property="og:description" content="Personal projects built with AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mikesapplab.com">
+    <meta name="description" content="Personal projects built with AI - explore Mike's collection of web applications">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Background and base colors */
+            --bg-color: #f4efe7;
+            --card-bg: #ffffff;    
+            --text-dark: #2d3748;
+            --text-secondary: #718096;
+            
+            /* Color palette for tiles (in order of usage) */
+            /* Tile 1: Orange */
+            --color-1-light: #F85817;
+            --color-1-dark: #D94910;
+            
+            /* Tile 2: Yellow */
+            --color-2-light: #F7B801;
+            --color-2-dark: #D49F01;
+            
+            /* Tile 3: Teal */
+            --color-3-light: #06B89D;
+            --color-3-dark: #049177;
+            
+            /* Tile 4: Purple */
+            --color-4-light: #9B59B6;
+            --color-4-dark: #7D3C98;
+            
+            /* Tile 5: Indigo */
+            --color-5-light: #5C6BC0;
+            --color-5-dark: #3F51B5;
+            
+            /* Tile 6: Cyan */
+            --color-6-light: #07A0C3;
+            --color-6-dark: #057A95;
+            
+            /* Tile 7: Magenta */
+            --color-7-light: #E91E63;
+            --color-7-dark: #C2185B;
+            
+            /* Tile 8: Navy */
+            --color-8-light: #086788;
+            --color-8-dark: #054F66;
+            
+            /* Tile 9: Coral */
+            --color-9-light: #FF6B6B;
+            --color-9-dark: #E84A4A;
+            
+            /* Additional color: Green (for future use) */
+            --color-10-light: #27AE60;
+            --color-10-dark: #1E8449;
+            
+            /* Shadows and effects */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding: 2.5rem 1.5rem;
+            color: var(--text-dark);
+        }
+
+        header {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 1.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .grid-container > a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .app-card:focus-within {
+            outline: 3px dashed var(--color-6-dark);
+            outline-offset: 2px;
+        }
+
+        /* Individual card accent colors */
+        .grid-container > a:nth-child(1) .app-card {
+            border-color: var(--color-1-dark);
+        }
+        
+        .grid-container > a:nth-child(2) .app-card {
+            border-color: var(--color-2-dark);
+        }
+        
+        .grid-container > a:nth-child(3) .app-card {
+            border-color: var(--color-3-dark);
+        }
+        
+        .grid-container > a:nth-child(4) .app-card {
+            border-color: var(--color-4-dark);
+        }
+        
+        .grid-container > a:nth-child(5) .app-card {
+            border-color: var(--color-5-dark);
+        }
+        
+        .grid-container > a:nth-child(6) .app-card {
+            border-color: var(--color-6-dark);
+        }
+        
+        .grid-container > a:nth-child(7) .app-card {
+            border-color: var(--color-7-dark);
+        }
+        
+        .grid-container > a:nth-child(8) .app-card {
+            border-color: var(--color-8-dark);
+        }
+        
+        .grid-container > a:nth-child(9) .app-card {
+            border-color: var(--color-9-dark);
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .grid-container > a:nth-child(1) .app-icon { 
+            background: linear-gradient(135deg, var(--color-1-light) 0%, var(--color-1-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(2) .app-icon { 
+            background: linear-gradient(135deg, var(--color-2-light) 0%, var(--color-2-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(3) .app-icon { 
+            background: linear-gradient(135deg, var(--color-3-light) 0%, var(--color-3-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(4) .app-icon { 
+            background: linear-gradient(135deg, var(--color-4-light) 0%, var(--color-4-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(5) .app-icon { 
+            background: linear-gradient(135deg, var(--color-5-light) 0%, var(--color-5-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(6) .app-icon { 
+            background: linear-gradient(135deg, var(--color-6-light) 0%, var(--color-6-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(7) .app-icon { 
+            background: linear-gradient(135deg, var(--color-7-light) 0%, var(--color-7-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(8) .app-icon { 
+            background: linear-gradient(135deg, var(--color-8-light) 0%, var(--color-8-dark) 100%);
+        }
+        
+        .grid-container > a:nth-child(9) .app-icon { 
+            background: linear-gradient(135deg, var(--color-9-light) 0%, var(--color-9-dark) 100%);
+        }
+
+        .app-card:hover .app-icon {
+            transform: scale(1.05);
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .app-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .external-resources {
+            max-width: 900px;
+            margin: 4rem auto 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .resource-list {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid var(--color-3-light);
+        }
+
+        .resource-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(113, 128, 150, 0.1);
+            transition: var(--transition);
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .resource-item:first-child {
+            padding-top: 0;
+        }
+
+        .resource-item:hover {
+            padding-left: 0.75rem;
+        }
+
+        .resource-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .resource-link:hover .resource-title {
+            color: var(--color-6-dark);
+        }
+
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-title::after {
+            content: '↗';
+            font-size: 0.9em;
+            opacity: 0.4;
+            transition: var(--transition);
+        }
+
+        .resource-link:hover .resource-title::after {
+            opacity: 1;
+            transform: translate(2px, -2px);
+        }
+
+        .resource-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            header {
+                margin-bottom: 2rem;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .grid-container {
+                gap: 1.25rem;
+                grid-template-columns: 1fr;
+            }
+
+            .app-card {
+                padding: 1.75rem;
+            }
+
+            .app-icon {
+                width: 64px;
+                height: 64px;
+                font-size: 1.5rem;
+                border-radius: 18px;
+            }
+
+            .app-title {
+                font-size: 1.35rem;
+            }
+
+            .external-resources {
+                margin-top: 3rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .resource-list {
+                padding: 1.5rem;
+            }
+
+            .resource-title {
+                font-size: 1.15rem;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 4rem auto 2rem;
+            text-align: left;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: #0077B5;
+        }
+
+        .social-link:focus {
+            outline: 3px dashed var(--color-6-dark);
+            outline-offset: 2px;
+        }
+
+        .social-link svg {
+            width: 28px;
+            height: 28px;
+            fill: #0077B5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mike's App Lab</h1>
+        <p class="tagline">Personal projects built with AI</p>
+    </header>
+
+    <main class="grid-container">
+        <a href="https://lines-and-shapes.mikesapplab.com/" target="_blank" rel="noopener noreferrer">
+            <div class="app-card">
+                <div class="app-icon">LS</div>
+                <h2 class="app-title">Lines and Shapes</h2>
+                <p class="app-description">A simple online drawing app.</p>
+            </div>
+        </a>
+
+        <a href="https://statics-drawings.mikesapplab.com/" target="_blank" rel="noopener noreferrer">
+            <div class="app-card">
+                <div class="app-icon">SD</div>
+                <h2 class="app-title">Statics Drawings</h2>
+                <p class="app-description">Create diagrams for Statics problems in Mechanical Engineering.</p>
+            </div>
+        </a>
+
+        <a href="https://habit-prototype.mikesapplab.com/" target="_blank" rel="noopener noreferrer">
+            <div class="app-card">
+                <div class="app-icon">HT</div>
+                <h2 class="app-title">Momentum Habit Tracker</h2>
+                <p class="app-description">Set goals and visualize progress. Data stored locally in your browser - no account needed.</p>
+            </div>
+        </a>
+
+        <a href="https://things.mikesapplab.com" target="_blank" rel="noopener noreferrer">
+            <div class="app-card">
+                <div class="app-icon">WWT</div>
+                <h2 class="app-title">Who Wrote That?</h2>
+                <p class="app-description">A hilarious party game of anonymous answers.</p>
+            </div>
+        </a>
+    </main>
+
+    <!-- Uncomment to enable External Resources section
+    <section class="external-resources">
+        <div class="section-header">
+            <h2>External Resources</h2>
+            <p>for help or inspiration</p>
+        </div>
+        
+        <div class="resource-list">
+            <div class="resource-item">
+                <a href="https://mymind.com/" class="resource-link" target="_blank" rel="noopener noreferrer">
+                    <h3 class="resource-title">mymind</h3>
+                    <p class="resource-description">A clean and powerful way to save bookmarks, notes, and more.</p>
+                </a>
+            </div>
+            
+            <div class="resource-item">
+                <a href="https://notebooklm.google/" class="resource-link" target="_blank" rel="noopener noreferrer">
+                    <h3 class="resource-title">NotebookLM</h3>
+                    <p class="resource-description">This AI platform uses the resources you upload to create Audio Overviews, Mind Maps, Infographics, Flash Cards, Quizzes, Presentations, and more. Built by Google.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <footer>
+        <a href="https://www.linkedin.com/in/michael-neal-3914a6134" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+        </a>
+    </footer>
+</body>
+</html>
